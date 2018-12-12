@@ -33,6 +33,10 @@ class NewTerminalHandler(tornado.web.RequestHandler):
         name, terminal = self.application.settings['term_manager'].new_named_terminal()
         self.redirect("/" + name, permanent=False)
 
+class MultiTerm(tornado.web.RequestHandler):
+    def get(self):
+        return self.render("multiterm.html", static=self.static_url)
+
 def main():
     print("Starting")
     term_manager = NamedTermManager(shell_command=['zsh'],
@@ -41,6 +45,7 @@ def main():
     handlers = [
                 (r"/_websocket/(\w+)", TermSocket,
                      {'term_manager': term_manager}),
+               (r"/multi/?", MultiTerm),
                 (r"/new/?", NewTerminalHandler),
                 (r"/(\w+)/?", TerminalPageHandler),
                 (r"/xstatic/(.*)", tornado_xstatic.XStaticFileHandler)

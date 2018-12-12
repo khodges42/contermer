@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Multiterm</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<style>
+    iframe {
+        overflow: hidden;
+        border: 0;
+
+    }
+
+    body {
+        background-color: #666;
+    }
+</style>
+<body>
+<input type="button" id="create" value="Create Iframe">
+<div id="iframe_div">
+</div>
+</body>
+<script>
+    var file_src = "/new";
+
+    $('#create').click(function () {
+        $('<iframe>')                      // Creates the element
+            .attr('src', file_src) // Sets the attribute spry:region="myDs"
+            .attr('height', 500)
+            .attr('width', 500)
+            .attr('frameBorder', '0')
+            .attr('scrolling', 'no')
+
+            .appendTo('#iframe_div');
+    });
+
+</script>
+</html>

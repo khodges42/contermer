@@ -1,4 +1,4 @@
-.PHONY: install start
+.PHONY: install start all
 
 install:
 	pip install -r requirements.txt; \
@@ -8,3 +8,5 @@ install:
 
 start:
 	python server.py
+
+all: install start
