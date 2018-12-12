@@ -16,4 +16,4 @@ WORKDIR /app
 RUN pip install -r requirements.txt
 EXPOSE 5001:5001
 ENTRYPOINT ["python"]
-CMD ["named.py"]
+CMD ["server.py"]
