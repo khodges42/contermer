@@ -8,7 +8,7 @@
 <style>
     iframe {
         overflow: hidden;
-        border: 0;
+        border: 1px solid #666;
 
     }
 
@@ -16,8 +16,11 @@
         background-color: #666;
     }
 </style>
+<link rel="stylesheet" href="static/gruvbox.css">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <body>
-<input type="button" id="create" value="Create Iframe">
+
+<input type="button" id="create" class="btn btn-primary btn-sm" value="New Terminal">
 <div id="iframe_div">
 </div>
 </body>
@@ -27,8 +30,9 @@
     $('#create').click(function () {
         $('<iframe>')                      // Creates the element
             .attr('src', file_src) // Sets the attribute spry:region="myDs"
-            .attr('height', 500)
-            .attr('width', 500)
+
+            .attr('height', 300)
+            .attr('width', 400)
             .attr('frameBorder', '0')
             .attr('scrolling', 'no')
 

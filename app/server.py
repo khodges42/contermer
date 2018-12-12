@@ -35,7 +35,7 @@ class NewTerminalHandler(tornado.web.RequestHandler):
 
 class MultiTerm(tornado.web.RequestHandler):
     def get(self):
-        return self.render("multiterm.html", static=self.static_url)
+        return self.render("multiterm.html")
 
 def main():
     print("Starting")
@@ -48,7 +48,8 @@ def main():
                (r"/multi/?", MultiTerm),
                 (r"/new/?", NewTerminalHandler),
                 (r"/(\w+)/?", TerminalPageHandler),
-                (r"/xstatic/(.*)", tornado_xstatic.XStaticFileHandler)
+                (r"/xstatic/(.*)", tornado_xstatic.XStaticFileHandler),
+                (r"/static/(.*)", tornado.web.StaticFileHandler)
                ]
     application = tornado.web.Application(handlers, static_path=STATIC_DIR,
                               template_path=TEMPLATE_DIR,
